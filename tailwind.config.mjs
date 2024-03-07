@@ -7,7 +7,7 @@ export default {
 			colors: {
 				primary: colors.cyan,
 				secondary: colors.gray,
-				accent: colors.orange
+				accent: colors.yellow
 			},
 		},
 	},
