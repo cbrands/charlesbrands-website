@@ -1,0 +1,20 @@
+---
+import '../assets/styles/base.css'
+import { SITE_TITLE, DESCRIPTION } from '../consts'
+import Head from './Head.astro'
+---
+
+<!doctype html>
+<html lang="en">
+  <Head title={SITE_TITLE} description={DESCRIPTION} />
+  <body
+    class="text-primary-100 bg-primary-900 min-h-screen grid grid-rows-[auto,1fr,auto]"
+  >
+    <slot />
+    <style is:global>
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>
