@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components'
+import Link from './Link.astro'
+import Container from './Container.astro'
+---
+
+<header
+  class="bg-primary-900 bg-opacity-50 text-primary-100 font-bold text-xl sticky top-0 backdrop-blur-sm"
+>
+  <Container>
+    <div class="flex justify-between items-center py-4">
+      <Link class="hover:text-secondary-500" href="/">Charles Brands</Link>
+      <nav>
+        <ul class="flex gap-4">
+          <li>
+            <Link class="hover:text-secondary-500" href="/">Home</Link>
+            <li>
+              <Link class="hover:text-secondary-500" href="/projects">
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link
+                class="hover:text-secondary-500"
+                href="https://github.com/cbrands"
+                isExternal
+                isBlank
+              >
+                <span class="flex items-center justify-items-center gap-2">
+                  <Icon name="ion--logo-github" />
+                  GitHub
+                </span>
+              </Link>
+            </li>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </Container>
+</header>

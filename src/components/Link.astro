@@ -1,0 +1,26 @@
+---
+interface Props {
+  href: string
+  rel?: string
+  target?: string
+  isBlank?: boolean
+  isExternal?: boolean
+  class?: string
+}
+
+const {
+  href,
+  class: classList,
+  isExternal,
+  rel = '',
+  target = '',
+  isBlank,
+} = Astro.props
+---
+
+<a
+  href={href}
+  class:list={[classList]}
+  rel={`${rel}${isExternal ? ' nofollow noopener noreferrer external' : ''}`}
+  target={`${target}${isBlank ? '_blank' : '_self'}`}><slot /></a
+>
