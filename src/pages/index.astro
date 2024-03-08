@@ -2,6 +2,8 @@
 import '../assets/styles/base.css'
 import Main from '../components/Main.astro'
 import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Heading from '../components/Heading.astro'
 ---
 
 <html lang="en">
@@ -15,72 +17,13 @@ import Header from '../components/Header.astro'
   <body class="bg-primary-900 text-primary-100">
     <Header />
     <Main>
-      <h1>Home page</h1>
-      <h2>Below some dummy content to test header</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-        dignissimos quaerat, ratione totam quae impedit reiciendis? Nostrum,
-        incidunt, necessitatibus ullam amet esse corrupti fugit sit aliquid
-        eveniet inventore deleniti voluptatum exercitationem! Veniam, fuga
-        molestiae animi ab, officia eligendi tempora possimus id voluptatem
-        architecto quibusdam, incidunt totam tenetur? Nobis, esse eligendi.
-      </p>
+      <Heading text="Home page" tagName="h1" size="h1" />
+      <Heading
+        text="Below some dummy content to test header"
+        tagName="h2"
+        size="h2"
+      />
+
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
         magnam tenetur adipisci? Dolores, mollitia! Voluptas, cupiditate nostrum
@@ -250,5 +193,6 @@ import Header from '../components/Header.astro'
         veritatis.
       </p>
     </Main>
+    <Footer />
   </body>
 </html>
