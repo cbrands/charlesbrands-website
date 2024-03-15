@@ -4,6 +4,22 @@ import Main from '../components/Main.astro'
 import Layout from '../layouts/PageLayout.astro'
 import { Image } from 'astro:assets'
 import charlesPhoto from '../assets/charles.jpeg'
+import { getCollection } from 'astro:content'
+import ProjectList from '../components/ProjectList.astro'
+let recentProjects = await getCollection('projects')
+recentProjects = recentProjects
+  .sort(
+    (
+      a: { data: { publishDate: string | number | Date } },
+      b: { data: { publishDate: string | number | Date } }
+    ) => {
+      return (
+        new Date(b.data.publishDate).getTime() -
+        new Date(a.data.publishDate).getTime()
+      )
+    }
+  )
+  .slice(0, 3)
 ---
 
 <Layout title="Charles Brands | Homepage">
@@ -25,6 +41,22 @@ import charlesPhoto from '../assets/charles.jpeg'
         quality="max"
         class="w-64 rounded-full"
       />
+    </section>
+    <section>
+      <div
+        class="mt-8 text-2xl font-bold flex gap-2 items-center justify-between"
+      >
+        <span>
+          Recent
+          <span class="text-secondary-400">Projects</span>
+        </span>
+        <div class="text-sm">
+          <a href="/projects"
+            >View all Projects <span class="text-secondary-200">→</span></a
+          >
+        </div>
+      </div>
+      <ProjectList projects={recentProjects} />
     </section>
   </Main>
 </Layout>
