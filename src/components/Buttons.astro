@@ -1,0 +1,30 @@
+---
+import Button from './Button.astro'
+import { Icon } from 'astro-icon/components'
+
+type Props = {
+  demoLink?: string
+  codeLink?: string
+}
+const { demoLink, codeLink } = Astro.props
+---
+
+<div class="flex gap-4 items-center justify-center mt-6">
+  {
+    demoLink && (
+      <Button href={demoLink} class="btn-demo" isExternal isBlank>
+        Link to Demo
+      </Button>
+    )
+  }
+  {
+    codeLink && (
+      <Button href={codeLink} class="btn-code" isExternal isBlank>
+        <span class="flex items-center">
+          <Icon name="ion--logo-github" />
+          View Code
+        </span>
+      </Button>
+    )
+  }
+</div>
