@@ -1,10 +1,30 @@
 ---
+import Heading from '../components/Heading.astro'
 import Main from '../components/Main.astro'
 import Layout from '../layouts/PageLayout.astro'
+import { Image } from 'astro:assets'
+import charlesPhoto from '../assets/charles.jpeg'
 ---
 
-<Layout title="Coding For A Reason">
+<Layout title="Charles Brands | Homepage">
   <Main>
-    <h1>Home page</h1>
+    <section
+      class="flex md:flex-row gap-8 md:gap-32 items-center flex-col justify-between mt-0 md:mt-12"
+    >
+      <div>
+        <Heading text="Charles Brands" tagName="h1" size="h1" />
+        <p class="mt-2 text-center md:text-left">
+          Full stack programmer and technology enthusiast. This page is just a
+          store to hold my future projects.
+        </p>
+      </div>
+      <Image
+        src={charlesPhoto}
+        alt="Charles Brands"
+        width={512}
+        quality="max"
+        class="w-64 rounded-full"
+      />
+    </section>
   </Main>
 </Layout>
