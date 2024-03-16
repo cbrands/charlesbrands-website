@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/PageLayout.astro'
+import Main from '../../components/Main.astro'
+import Heading from '../../components/Heading.astro'
+import { getCollection } from 'astro:content'
+import ProjectList from '../../components/ProjectList.astro'
+
+let allProjects = await getCollection('projects')
+allProjects = allProjects.sort((a, b) => {
+  return (
+    new Date(b.data.publishDate).getTime() -
+    new Date(a.data.publishDate).getTime()
+  )
+})
+---
+
+<Layout title="Charles Brands | projects">
+  <Main>
+    <Heading text="A list of all my projects" tagName="h1" size="h1" />
+    <p>A list of the projects I build since the creation of this site.</p>
+    <ProjectList projects={allProjects} />
+  </Main>
+</Layout>

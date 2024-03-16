@@ -4,6 +4,7 @@ import Buttons from './Buttons.astro'
 import { Image } from 'astro:assets'
 import Heading from './Heading.astro'
 import Tags from './Tags.astro'
+import Link from './Link.astro'
 
 type Props = {
   project: CollectionEntry<'projects'>
@@ -11,22 +12,28 @@ type Props = {
 const { project } = Astro.props
 ---
 
-<article class="bg-secondary-700">
-  <a href={`/projects/${project.slug}`}>
+<article
+  class="max-w-2xl bg-white border border-secondary-200 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700"
+>
+  <Link href={`/projects/${project.slug}`}>
     <Image
       alt=""
       src={project.data.cover}
       width={1024}
       height={1024 / 1.5}
       format="webp"
-      class="rounded-2xl shadow-xl mb-6 aspect-thumbnail object-cover"
+      class="rounded-t-lg"
     />
-    <Tags tags={project.data.tags} />
+  </Link>
+  <Tags tags={project.data.tags} class="mt-6 mb-6" />
+  <Link href={`/projects/${project.slug}`}>
     <Heading text={project.data.title} tagName="h2" size="h2" />
     <p>{project.data.publishDate.toUTCString().slice(0, -13)}</p>
-    <p class="text-2xl mb-9 line-clamp-2">
+    <p
+      class="mb-3 font-normal text-secondary-700 dark:text-secondary-400 line-clamp-2"
+    >
       {project.body}
     </p>
-  </a>
+  </Link>
   <Buttons demoLink={project.data.demoLink} codeLink={project.data.codeLink} />
 </article>
