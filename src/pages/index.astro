@@ -8,17 +8,12 @@ import { getCollection } from 'astro:content'
 import ProjectList from '../components/ProjectList.astro'
 let recentProjects = await getCollection('projects')
 recentProjects = recentProjects
-  .sort(
-    (
-      a: { data: { publishDate: string | number | Date } },
-      b: { data: { publishDate: string | number | Date } }
-    ) => {
-      return (
-        new Date(b.data.publishDate).getTime() -
-        new Date(a.data.publishDate).getTime()
-      )
-    }
-  )
+  .sort((a, b) => {
+    return (
+      new Date(b.data.publishDate).getTime() -
+      new Date(a.data.publishDate).getTime()
+    )
+  })
   .slice(0, 3)
 ---
 
