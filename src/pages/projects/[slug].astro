@@ -1,0 +1,62 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
+
+import Layout from '../../layouts/PageLayout.astro'
+import Main from '../../components/Main.astro'
+import Heading from '../../components/Heading.astro'
+import Tags from '../../components/Tags.astro'
+import Buttons from '../../components/Buttons.astro'
+
+export const getStaticPaths = async () => {
+  const projects = await getCollection('projects')
+  const paths = projects.map((project) => {
+    return {
+      params: {
+        slug: project.slug,
+      },
+      props: {
+        project,
+      },
+    }
+  })
+  return paths
+}
+
+type Props = {
+  project: CollectionEntry<'projects'>
+}
+
+const { project } = Astro.props
+const { Content } = await project.render()
+---
+
+<Layout title={project.data.title}>
+  <Main>
+    <Heading
+      text={project.data.title}
+      tagName="h1"
+      size="h1"
+      class="mt-6 mb-3 text-center"
+    />
+    <p class="text-center">
+      {project.data.publishDate.toUTCString().slice(0, -13)}
+    </p>
+    <Tags tags={project.data.tags} class="mb-6" />
+    <Image
+      alt=""
+      src={project.data.cover}
+      width={1024}
+      height={1024 / 1.5}
+      format="webp"
+      class="rounded-2xl shadow-xl mb-28 aspect-thumbnail object-cover"
+    />
+    <div class="prose prose-2xl text-primary-100 overflow-visible relative">
+      <Content />
+    </div>
+    <Buttons
+      demoLink={project.data.demoLink}
+      codeLink={project.data.codeLink}
+    />
+  </Main>
+</Layout>
