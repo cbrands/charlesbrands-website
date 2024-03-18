@@ -49,14 +49,17 @@ const { Content } = await project.render()
       width={1024}
       height={1024 / 1.5}
       format="webp"
-      class="rounded-2xl shadow-xl mb-28 aspect-thumbnail object-cover"
+      class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover mx-auto"
     />
-    <div class="prose prose-2xl text-primary-100 overflow-visible relative">
-      <Content />
-    </div>
     <Buttons
       demoLink={project.data.demoLink}
       codeLink={project.data.codeLink}
+      class="mb-8"
     />
+    <div
+      class="prose prose-teal md:prose-lg lg:prose-xl dark:prose-invert overflow-visible relative"
+    >
+      <Content />
+    </div>
   </Main>
 </Layout>
