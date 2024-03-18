@@ -10,7 +10,7 @@ type Props = {
 const { demoLink, codeLink, class: classList } = Astro.props
 ---
 
-<div class:list={['flex gap-4 items-center justify-center mt-6', classList]}>
+<div class:list={['flex gap-4 items-center justify-center', classList]}>
   {
     demoLink && (
       <Button href={demoLink} class="btn-demo" isExternal isBlank>

@@ -5,8 +5,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: colors.cyan,
-				secondary: colors.gray,
+				primary: colors.teal,
+				secondary: colors.zinc,
 				accent: colors.yellow
 			},
 		},

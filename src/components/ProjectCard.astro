@@ -26,12 +26,19 @@ const { project } = Astro.props
       class="rounded-t-lg"
     />
   </Link>
-  <Tags tags={project.data.tags} class="mt-6 mb-6" />
+  <Tags tags={project.data.tags} class="mt-6 mb-4" />
   <Link href={`/projects/${project.slug}`} class="px-6">
-    <Heading text={project.data.title} tagName="h2" size="h2" class="mx-6" />
-    <p class="mx-6">{project.data.publishDate.toUTCString().slice(0, -13)}</p>
+    <Heading
+      text={project.data.title}
+      tagName="h2"
+      size="h2"
+      class="mx-6 text-center"
+    />
+    <p class="mx-6 text-center">
+      {project.data.publishDate.toUTCString().slice(0, -13)}
+    </p>
     <p
-      class="mb-3 font-normal text-secondary-700 dark:text-secondary-400 line-clamp-2 mx-6"
+      class="mt-2 mb-3 font-normal text-secondary-700 dark:text-secondary-400 line-clamp-2 mx-6 text-center"
     >
       {project.body}
     </p>
@@ -39,6 +46,6 @@ const { project } = Astro.props
   <Buttons
     demoLink={project.data.demoLink}
     codeLink={project.data.codeLink}
-    class="mt-6 mb-6"
+    class="mt-0 mb-4"
   />
 </article>
