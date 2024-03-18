@@ -16,8 +16,10 @@ allProjects = allProjects.sort((a, b) => {
 
 <Layout title="Charles Brands | projects">
   <Main>
-    <Heading text="A list of all my projects" tagName="h1" size="h1" />
-    <p>A list of the projects I build since the creation of this site.</p>
-    <ProjectList projects={allProjects} />
+    <section class="mt-0 md:mt-12">
+      <Heading text="A list of all my projects" tagName="h1" size="h1" />
+      <p>A list of the projects I build since the creation of this site.</p>
+      <ProjectList projects={allProjects} />
+    </section>
   </Main>
 </Layout>
