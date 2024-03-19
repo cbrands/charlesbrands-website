@@ -1,5 +1,4 @@
 ---
-import { type HTMLAttributes } from 'astro/types'
 const headingOptions = {
   h1: 'text-4xl lg:text-6xl',
   h2: 'text-2xl lg:text-4xl',
@@ -8,20 +7,18 @@ const headingOptions = {
   h5: 'text-base lg:text-lg',
   h6: 'text-sm lg:text-base',
 }
-interface Props extends HTMLAttributes<keyof typeof headingOptions> {
-  text: string
+
+type Props = {
   tagName: keyof typeof headingOptions
   size: keyof typeof headingOptions
-  classes?: string
+  text: string
+  class?: string
 }
 
-const { text, tagName, size, class: classList, ...rest } = Astro.props
+const { tagName, size, text, class: classList } = Astro.props
 const Tag = tagName
 ---
 
-<Tag
-  {...rest}
-  class:list={['font-bold tracking-tight', headingOptions[size], classList]}
->
+<Tag class:list={['default', headingOptions[size], classList]}>
   {text}
 </Tag>

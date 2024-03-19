@@ -9,7 +9,7 @@ const projectCollection = defineCollection({
     cover: image().refine((img) => img.width >= 1000, {
       message: "Cover image must be at least 1000 pixels wide!",
     }),
-    publishDate: z.date().or(z.string()),
+    publishDate: z.date(),
     description: z.string(),
     codeLink: z.string().optional(),
     demoLink: z.string().optional(),
