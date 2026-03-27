@@ -1,14 +1,13 @@
 import { z, defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const projectCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
   schema: ({ image }) => z.object({
     title: z.string(),
+    slug: z.string(),
     tags: z.array(z.string()),
-    // image: z.object({ alt: z.string(), src: z.string() }),
-    cover: image().refine((img) => img.width >= 1000, {
-      message: "Cover image must be at least 1000 pixels wide!",
-    }),
+    cover: image(),
     publishDate: z.date(),
     description: z.string(),
     codeLink: z.string().optional(),
