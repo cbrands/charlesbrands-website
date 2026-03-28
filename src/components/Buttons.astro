@@ -14,17 +14,16 @@ const { demoLink, codeLink, class: classList } = Astro.props
   {
     demoLink && (
       <Button href={demoLink} class="btn-demo" isExternal isBlank>
-        Link to Demo
+        <Icon name="ion--rocket" />
+        Live Demo
       </Button>
     )
   }
   {
     codeLink && (
       <Button href={codeLink} class="btn-code" isExternal isBlank>
-        <span class="flex items-center gap-1">
-          <Icon name="ion--logo-github" />
-          View Code
-        </span>
+        <Icon name="ion--code-slash" />
+        View Code
       </Button>
     )
   }

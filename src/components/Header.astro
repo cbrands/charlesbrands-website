@@ -2,36 +2,38 @@
 import { Icon } from 'astro-icon/components'
 import Link from './Link.astro'
 import Container from './Container.astro'
+
+const { pathname } = Astro.url
 ---
 
 <header
-  class="bg-secondary-900 bg-opacity-90 text-secondary-100 font-bold text-sm sticky top-0 backdrop-blur-sm z-10"
+  class="bg-secondary-900 bg-opacity-90 text-secondary-100 font-bold text-base sticky top-0 backdrop-blur-sm z-10"
 >
   <Container>
-    <div class="flex justify-between items-center py-2">
-      <Link class="hover:text-secondary-500" href="/">Charles Brands</Link>
+    <div class="flex justify-between items-center py-4">
+      <Link class="hover:text-secondary-500" href="/">Charles <span class="text-primary-400">Brands</span></Link>
       <nav>
         <ul class="flex gap-4">
           <li>
-            <Link class="hover:text-secondary-500" href="/">Home</Link>
-            <li>
-              <Link class="hover:text-secondary-500" href="/projects">
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                class="hover:text-secondary-500"
-                href="https://github.com/cbrands"
-                isExternal
-                isBlank
-              >
-                <span class="flex items-center justify-items-center gap-2">
-                  <Icon name="ion--logo-github" />
-                  GitHub
-                </span>
-              </Link>
-            </li>
+            <Link class={`hover:text-primary-400 ${pathname === '/' ? 'text-primary-400 underline decoration-2 decoration-primary-400 underline-offset-8' : ''}`} href="/">Home</Link>
+          </li>
+          <li>
+            <Link class={`hover:text-primary-400 ${pathname.startsWith('/projects') ? 'text-primary-400 underline decoration-2 decoration-primary-400 underline-offset-8' : ''}`} href="/projects">
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link
+              class="hover:text-primary-400"
+              href="https://github.com/cbrands"
+              isExternal
+              isBlank
+            >
+              <span class="flex items-center justify-items-center gap-2">
+                <Icon name="ion--logo-github" />
+                GitHub
+              </span>
+            </Link>
           </li>
         </ul>
       </nav>
