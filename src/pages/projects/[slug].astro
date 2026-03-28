@@ -42,7 +42,7 @@ const { Content } = await render(project)
     <p class="text-center">
       {project.data.publishDate.toUTCString().slice(0, -13)}
     </p>
-    <Tags tags={project.data.tags} class="mb-6" />
+    <Tags tags={project.data.tags} class="mb-6 justify-center" />
     <Image
       alt=""
       src={project.data.cover}
@@ -54,7 +54,7 @@ const { Content } = await render(project)
     <Buttons
       demoLink={project.data.demoLink}
       codeLink={project.data.codeLink}
-      class="mb-8"
+      class="mb-8 justify-center"
     />
     <div
       class="prose prose-teal md:prose-lg lg:prose-xl dark:prose-invert overflow-visible relative"

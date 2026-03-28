@@ -11,7 +11,7 @@ const { tags, class: classList } = Astro.props
 ---
 
 <div
-  class:list={['flex gap-2 px-2 flex-wrap mt-2 mb-2 justify-center', classList]}
+  class:list={['flex gap-2 flex-wrap mt-2 mb-2', classList]}
 >
   {tags.map((tag: string) => <Tag tag={tag} />)}
 </div>
